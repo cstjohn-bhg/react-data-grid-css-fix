@@ -1,15 +1,14 @@
 # react-data-grid
 
 > The core of react-data-grid
- 
+
 
 ## Install
 
-```sh
-npm install --save react-data-grid
+Add the dependency declaration (`{..."react-data-grid": "git://github.com/cstjohn-bhg/react-data-grid-css-fix.git#no-style-testing"...}`) to your project's package.json pointing to the github URL and `npm install`.  The default CSS for the package has been provided at `./css/react-data-grid.css` to be exported and potentially modified for your consuming application.
 ```
 
-## Usage 
+## Usage
 
 ```sh
 import ReactDataGrid from 'react-data-grid';
