@@ -195,6 +195,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 	function addStylesToDom(styles, options) {
+		// 		NOTE:
+		// We're going to skip adding styles to DOM and allow consumers to easily style through a stylesheet.
+		// CSS that would have been inserted into <style> tags after the bundle.js <script> tag is available at
+		// ./css/react-data-grid.css
+		//
 		// for(var i = 0; i < styles.length; i++) {
 		// 	var item = styles[i];
 		// 	var domStyle = stylesInDom[item.id];
