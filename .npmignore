@@ -3,3 +3,5 @@ src
 secure-file
 npm-debug.log
 lerna-debug.log
+.gitignore
+react-data-grid-fix.sublime-*

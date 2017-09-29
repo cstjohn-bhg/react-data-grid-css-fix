@@ -195,25 +195,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 	function addStylesToDom(styles, options) {
-		for(var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-			if(domStyle) {
-				domStyle.refs++;
-				for(var j = 0; j < domStyle.parts.length; j++) {
-					domStyle.parts[j](item.parts[j]);
-				}
-				for(; j < item.parts.length; j++) {
-					domStyle.parts.push(addStyle(item.parts[j], options));
-				}
-			} else {
-				var parts = [];
-				for(var j = 0; j < item.parts.length; j++) {
-					parts.push(addStyle(item.parts[j], options));
-				}
-				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-			}
-		}
+		// 		NOTE:
+		// We're going to skip adding styles to DOM and allow consumers to easily style through a stylesheet.
+		// CSS that would have been inserted into <style> tags after the bundle.js <script> tag is available at
+		// ./css/react-data-grid.css
+		//
+		// for(var i = 0; i < styles.length; i++) {
+		// 	var item = styles[i];
+		// 	var domStyle = stylesInDom[item.id];
+		// 	if(domStyle) {
+		// 		domStyle.refs++;
+		// 		for(var j = 0; j < domStyle.parts.length; j++) {
+		// 			domStyle.parts[j](item.parts[j]);
+		// 		}
+		// 		for(; j < item.parts.length; j++) {
+		// 			domStyle.parts.push(addStyle(item.parts[j], options));
+		// 		}
+		// 	} else {
+		// 		var parts = [];
+		// 		for(var j = 0; j < item.parts.length; j++) {
+		// 			parts.push(addStyle(item.parts[j], options));
+		// 		}
+		// 		stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+		// 	}
+		// }
 	}
 
 	function listToStyles(list) {
@@ -1586,7 +1591,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var array = this._array;
 	      var maxIndex = array.length - 1;
 	      var ii = 0;
-	      return new Iterator(function() 
+	      return new Iterator(function()
 	        {return ii > maxIndex ?
 	          iteratorDone() :
 	          iteratorValue(type, ii, array[reverse ? maxIndex - ii++ : ii++])}
@@ -2057,7 +2062,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Repeat.prototype.__iterator = function(type, reverse) {var this$0 = this;
 	      var ii = 0;
-	      return new Iterator(function() 
+	      return new Iterator(function()
 	        {return ii < this$0.size ? iteratorValue(type, ii++, this$0._value) : iteratorDone()}
 	      );
 	    };
@@ -4255,7 +4260,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return flipSequence;
 	      };
 	    }
-	    reversedSequence.get = function(key, notSetValue) 
+	    reversedSequence.get = function(key, notSetValue)
 	      {return iterable.get(useKeys ? key : -1 - key, notSetValue)};
 	    reversedSequence.has = function(key )
 	      {return iterable.has(useKeys ? key : -1 - key)};
@@ -4454,7 +4459,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return this.cacheResult().__iterate(fn, reverse);
 	      }
 	      var iterations = 0;
-	      iterable.__iterate(function(v, k, c) 
+	      iterable.__iterate(function(v, k, c)
 	        {return predicate.call(context, v, k, c) && ++iterations && fn(v, k, this$0)}
 	      );
 	      return iterations;
@@ -4645,7 +4650,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    interposedSequence.size = iterable.size && iterable.size * 2 -1;
 	    interposedSequence.__iterateUncached = function(fn, reverse) {var this$0 = this;
 	      var iterations = 0;
-	      iterable.__iterate(function(v, k) 
+	      iterable.__iterate(function(v, k)
 	        {return (!iterations || fn(separator, iterations++, this$0) !== false) &&
 	        fn(v, iterations++, this$0) !== false},
 	        reverse
@@ -7208,7 +7213,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *
 	 * @providesModule shallowEqual
 	 * @typechecks
-	 * 
+	 *
 	 */
 
 	'use strict';
